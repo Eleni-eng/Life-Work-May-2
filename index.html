@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Life + Work | Integrated Coaching for Real People</title>
+  <!-- Google Fonts: clean, modern sans-serif -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1A2C2E;
+      line-height: 1.4;
+    }
+
+    /* main container - premium spacing */
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 70px 40px 90px 40px;
+    }
+
+    /* INTRO AREA - FULLY CENTERED, no frame */
+    .intro-centered {
+      text-align: center;
+      margin-bottom: 64px;
+      border-bottom: 1px solid #E8EDED;
+      padding-bottom: 48px;
+    }
+
+    .intro-centered h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #0F3B3D;
+      margin-bottom: 12px;
+    }
+
+    .intro-centered h1 span {
+      font-weight: 400;
+      color: #2C7A7B;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #2D5A5C;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    /* intro quote: no frame, inline, just regular text */
+    .intro-quote {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #2D4A4C;
+      font-weight: 450;
+      display: inline-block;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* TABS navigation - NO ICONS on main titles */
+    .tabs-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      border-bottom: 1.5px solid #E7EFEF;
+      margin-bottom: 48px;
+      padding-bottom: 0;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      padding: 10px 28px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #55777A;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-radius: 0px;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: -0.2px;
+    }
+
+    .tab-btn i {
+      display: none;
+    }
+
+    .tab-btn:hover {
+      background: #F2F8F8;
+      color: #1C6F71;
+    }
+
+    .tab-btn.active {
+      background: #F0F7F7;
+      color: #136F71;
+      font-weight: 600;
+      border-bottom: 2px solid #2C9B9D;
+    }
+
+    /* TAB CONTENT PANEL */
+    .tab-panel {
+      display: none;
+      animation: fadeInUp 0.3s ease-out;
+    }
+
+    .tab-panel.active-panel {
+      display: block;
+    }
+
+    /* Two-column refined layout */
+    .program-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    .program-left {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .program-right {
+      flex: 1.3;
+      min-width: 280px;
+    }
+
+    /* SQUARE BLACK TAG */
+    .tag-square {
+      display: inline-block;
+      background: #000000;
+      padding: 6px 14px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      border-radius: 0px;
+      text-transform: uppercase;
+    }
+
+    .program-left h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0B4547;
+      line-height: 1.25;
+      margin-bottom: 28px;
+      max-width: 90%;
+    }
+
+    /* download button on left side - SQUARE */
+    .left-download-btn {
+      margin-top: 8px;
+    }
+
+    .btn-download-left {
+      background: transparent;
+      border: 1.2px solid #B9D8D9;
+      padding: 10px 20px;
+      border-radius: 0px;
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: #1E7F81;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      background: #FFFFFF;
+    }
+
+    .btn-download-left i {
+      font-size: 0.85rem;
+      color: #2C9B9D;
+    }
+
+    .btn-download-left:hover {
+      background: #EFF8F8;
+      border-color: #2C9B9D;
+      color: #0E6365;
+      transform: translateY(-1px);
+    }
+
+    .program-right p {
+      font-size: 1rem;
+      line-height: 1.55;
+      color: #2F5456;
+      margin-bottom: 22px;
+    }
+
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 20px 0 28px 0;
+    }
+
+    .topic-tag {
+      background: #F2F8F8;
+      padding: 5px 14px;
+      border-radius: 0px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #1A7B7D;
+      transition: all 0.2s;
+    }
+
+    .topic-tag:hover {
+      background: #E2F0F0;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 12px;
+      align-items: center;
+    }
+
+    /* ALL BUTTONS PERFECT SQUARE */
+    .btn-primary, .btn-outline, .reserve-btn, .btn-download-left {
+      border-radius: 0px !important;
+    }
+
+    .btn-primary {
+      background: #1F7173;
+      border: none;
+      padding: 10px 26px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      color: white;
+      cursor: pointer;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: -0.2px;
+    }
+
+    .btn-primary i {
+      font-size: 0.85rem;
+    }
+
+    .btn-primary:hover {
+      background: #0D585A;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(31, 113, 115, 0.12);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #C2DFE0;
+      padding: 9px 24px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #1E7F81;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-outline:hover {
+      background: #F2F9F9;
+      border-color: #1F7173;
+      color: #0D5E60;
+      transform: translateY(-1px);
+    }
+
+    /* MASTERCLASSES: HORIZONTAL COMPACT CARDS */
+    .master-horizontal-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+
+    .master-card {
+      flex: 1 1 280px;
+      background: #FFFFFF;
+      padding: 22px 20px 26px 20px;
+      transition: all 0.25s ease;
+      border: 1px solid #EAF0F0;
+    }
+
+    .master-card:hover {
+      border-color: #C8E3E3;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 22px -8px rgba(31, 113, 115, 0.08);
+    }
+
+    /* master-tag: BLACK background, SQUARE, no "Program" word */
+    .master-tag {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: #000000;
+      display: inline-block;
+      padding: 5px 12px;
+      letter-spacing: 0.3px;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      border-radius: 0px;
+    }
+
+    .master-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0B4547;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .master-desc {
+      font-size: 0.85rem;
+      color: #466B6D;
+      margin-bottom: 18px;
+      line-height: 1.45;
+    }
+
+    /* meta tags: no frames, just tick + inline */
+    .meta-list {
+      margin: 14px 0 22px 0;
+    }
+
+    .meta-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    .meta-item {
+      font-size: 0.75rem;
+      color: #2C6A6C;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      padding: 0;
+    }
+
+    .meta-item i {
+      color: #1F7173;
+      font-size: 0.7rem;
+      width: 14px;
+    }
+
+    .reserve-btn {
+      background: transparent;
+      border: 1.5px solid #C5E2E2;
+      padding: 8px 20px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      color: #1B7A7C;
+      transition: all 0.2s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .reserve-btn i {
+      font-size: 0.7rem;
+    }
+
+    .reserve-btn:hover {
+      background: #1F7173;
+      border-color: #1F7173;
+      color: white;
+    }
+
+    .limited-badge {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: #C5764A;
+      background: #FEF4EC;
+      padding: 2px 8px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 850px) {
+      .section-container {
+        padding: 48px 24px 70px;
+      }
+      .intro-centered h1 {
+        font-size: 2.6rem;
+      }
+      .program-left h2 {
+        font-size: 1.9rem;
+      }
+      .program-wrapper {
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .master-horizontal-grid {
+        flex-direction: column;
+      }
+      .cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .intro-quote {
+        font-size: 1rem;
+      }
+      .meta-line {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="section-container">
+  <!-- INTRO AREA: fully centered, no frame around quote, inline text -->
+  <div class="intro-centered">
+    <h1>Life + Work <span>— we cover both</span></h1>
+    <div class="subhead">Because you don’t have to choose</div>
+    <div class="intro-quote">
+      We work with the person behind the business – and the life around it.
+    </div>
+  </div>
+
+  <!-- TABS navigation: no icons -->
+  <div class="tabs-nav">
+    <button class="tab-btn active" data-tab="tab1">Personal Coaching</button>
+    <button class="tab-btn" data-tab="tab2">Business Coaching</button>
+    <button class="tab-btn" data-tab="tab3">Financial Intelligence</button>
+    <button class="tab-btn" data-tab="tab4">The Pause Circle</button>
+    <button class="tab-btn" data-tab="tab5">Masterclasses</button>
+  </div>
+
+  <!-- Tab 1: Personal Coaching -->
+  <div id="tab1" class="tab-panel active-panel">
+    <div class="program-wrapper">
+      <div class="program-left">
+        <div class="tag-square">Personal Coaching</div>
+        <h2>Your life and work,<br>finally aligned.</h2>
+        <div class="left-download-btn">
+          <button class="btn-download-left" onclick="alert('📥 Personal Coaching program guide + roadmap (PDF)')"><i class="fas fa-download"></i> Download Program Guide</button>
+        </div>
+      </div>
+      <div class="program-right">
+        <p>You show up fully at work. Fully at home. But somewhere in between, you've stopped showing up for yourself. We integrate both — because the blocks are usually the same conversation.</p>
+        <div class="tag-group">
+          <span class="topic-tag">1:1</span>
+          <span class="topic-tag">Group Coaching</span>
+          <span class="topic-tag">Retreats</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn-primary" onclick="alert('📅 Book a session — we’ll reach out shortly.')"><i class="fas fa-calendar-check"></i> Book Your Session</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2: Business Coaching -->
+  <div id="tab2" class="tab-panel">
+    <div class="program-wrapper">
+      <div class="program-left">
+        <div class="tag-square">Business Coaching</div>
+        <h2>Stop running it.<br>Start owning it.</h2>
+        <div class="left-download-btn">
+          <button class="btn-download-left" onclick="alert('📥 Business systems & strategy playbook (PDF)')"><i class="fas fa-download"></i> Download Program Guide</button>
+        </div>
+      </div>
+      <div class="program-right">
+        <p>For founders ready to stop running on adrenaline. We build the systems, mindset, and strategy that let your business grow without consuming you. The freedom you built this for still exists.</p>
+        <div class="tag-group">
+          <span class="topic-tag">Startups</span>
+          <span class="topic-tag">SMEs</span>
+          <span class="topic-tag">Family Enterprise</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn-primary" onclick="alert('📅 Schedule a session with our business coaching team')"><i class="fas fa-calendar-check"></i> Book Your Session</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 3: Financial Intelligence -->
+  <div id="tab3" class="tab-panel">
+    <div class="program-wrapper">
+      <div class="program-left">
+        <div class="tag-square">Financial Intelligence</div>
+        <h2>Your money story,<br>finally rewritten</h2>
+        <div class="left-download-btn">
+          <button class="btn-download-left" onclick="alert('📥 Financial Intelligence workbook + money narrative guide (PDF)')"><i class="fas fa-download"></i> Download Program Guide</button>
+        </div>
+      </div>
+      <div class="program-right">
+        <p>Your relationship with money started long before your first paycheck. We go inside the beliefs and inherited patterns quietly running your decisions today. No jargon. No shame. Just clarity that lasts.</p>
+        <div class="tag-group">
+          <span class="topic-tag">Money mindset</span>
+          <span class="topic-tag">Wealth patterns</span>
+          <span class="topic-tag">Inner work</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn-primary" onclick="alert('Connect for Financial Intelligence session')"><i class="fas fa-calendar-check"></i> Book Your Session</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 4: The Pause Circle -->
+  <div id="tab4" class="tab-panel">
+    <div class="program-wrapper">
+      <div class="program-left">
+        <div class="tag-square">The Pause Circle</div>
+        <h2>Stop. Listen.<br>Lead from within</h2>
+        <div class="left-download-btn">
+          <button class="btn-download-left" onclick="alert('📥 The Pause Circle experience + circle guide (PDF)')"><i class="fas fa-download"></i> Download Program Guide</button>
+        </div>
+      </div>
+      <div class="program-right">
+        <p>Not meditation. Not breathwork. A structured space to stop, listen to yourself, and make decisions from clarity rather than noise. For leaders and individuals who need to reconnect with their own direction.</p>
+        <div class="tag-group">
+          <span class="topic-tag">Monthly circles</span>
+          <span class="topic-tag">Leadership clarity</span>
+          <span class="topic-tag">Small groups</span>
+        </div>
+        <div class="cta-row">
+          <button class="btn-primary" onclick="alert('✨ Join The Pause Circle — we will send you the details')"><i class="fas fa-circle-plus"></i> Join the circle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 5: Masterclasses -->
+  <div id="tab5" class="tab-panel">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 28px;">
+      <div style="font-size: 1rem; font-weight: 500; color:#2C6E70;"><i class="fas fa-chalkboard-user"></i> Curated intensives</div>
+      <button class="btn-download-left" onclick="alert('📥 Masterclasses bundle: Free2Scale, Menopause, What’s Next? full program guides (PDF)')" style="border-color:#cde2e2;"><i class="fas fa-download"></i> Download all masterclass guides</button>
+    </div>
+    <div class="master-horizontal-grid">
+      <!-- Master 1: Free2Scale -->
+      <div class="master-card">
+        <div class="master-tag">Business</div>
+        <div class="master-title">Free2Scale</div>
+        <div class="master-desc">The only program that shows you how money actually works — no jargon, no prior knowledge needed.</div>
+        <div class="meta-list">
+          <div class="meta-line">
+            <span class="meta-item"><i class="fas fa-check"></i> Online</span>
+            <span class="meta-item"><i class="fas fa-check"></i> In-person</span>
+          </div>
+        </div>
+        <button class="reserve-btn" onclick="alert('Reserve your seat for Free2Scale (limited availability)')"><i class="fas fa-ticket-alt"></i> Reserve Your Seat <span class="limited-badge">limited seats</span></button>
+      </div>
+
+      <!-- Master 2: Menopause - two lines: first line Online + In-person, second line Women Groups + Family Groups -->
+      <div class="master-card">
+        <div class="master-tag">Life – Women</div>
+        <div class="master-title">Menopause is not a pause</div>
+        <div class="master-desc">The transition nobody talks about. It's a passage into a new version of yourself with awareness, power, and self-care that lasts.</div>
+        <div class="meta-list">
+          <div class="meta-line">
+            <span class="meta-item"><i class="fas fa-check"></i> Online</span>
+            <span class="meta-item"><i class="fas fa-check"></i> In-person</span>
+          </div>
+          <div class="meta-line">
+            <span class="meta-item"><i class="fas fa-check"></i> Women Groups</span>
+            <span class="meta-item"><i class="fas fa-check"></i> Family Groups</span>
+          </div>
+        </div>
+        <button class="reserve-btn" onclick="alert('Reserve your seat — Menopause journey')"><i class="fas fa-ticket-alt"></i> Reserve Your Seat <span class="limited-badge">limited seats</span></button>
+      </div>
+
+      <!-- Master 3: What’s Next? -->
+      <div class="master-card">
+        <div class="master-tag">Life Transitions</div>
+        <div class="master-title">What’s Next?</div>
+        <div class="master-desc">When life changes without asking your permission. Loss, a sudden change, an ending you didn’t see coming, for everyone standing in that silence.</div>
+        <div class="meta-list">
+          <div class="meta-line">
+            <span class="meta-item"><i class="fas fa-check"></i> Life transitions</span>
+            <span class="meta-item"><i class="fas fa-check"></i> Support circle</span>
+          </div>
+        </div>
+        <button class="reserve-btn" onclick="alert('Reserve your seat — What’s Next? session')"><i class="fas fa-ticket-alt"></i> Reserve Your Seat <span class="limited-badge">limited seats</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tab switching logic
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+
+  function activateTab(tabId) {
+    panels.forEach(panel => panel.classList.remove('active-panel'));
+    tabs.forEach(btn => btn.classList.remove('active'));
+    const activePanel = document.getElementById(tabId);
+    if (activePanel) activePanel.classList.add('active-panel');
+    const correspondingBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+    if (correspondingBtn) correspondingBtn.classList.add('active');
+  }
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const tabId = btn.getAttribute('data-tab');
+      if (tabId) activateTab(tabId);
+    });
+  });
+</script>
+</body>
+</html>
